@@ -15,8 +15,6 @@ import {
 
 import { Providers } from "@/components/Providers";
 import Header from "@/components/Header";
-
-// Se você já possui estes valores no projeto (padrão Once UI starter):
 import { baseURL, meta, fonts, effects, style, dataStyle } from "@/resources/once-ui.config";
 
 export async function generateMetadata() {
@@ -54,8 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               (function() {
                 try {
                   const root = document.documentElement;
-
-                  // Config padrão (do once-ui.config)
                   const config = ${JSON.stringify({
                     theme: style.theme,
                     brand: style.brand,
@@ -69,39 +65,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     scaling: style.scaling,
                     "viz-style": dataStyle.variant,
                   })};
-
-                  // Aplica defaults como data-attrs
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-
-                  // Resolve tema
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = savedTheme
-                    ? resolveTheme(savedTheme)
-                    : config.theme === 'system'
-                      ? resolveTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-                      : config.theme;
-
-                  root.setAttribute('data-theme', resolvedTheme);
-
-                  // Overrides salvos
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
+                  Object.entries(config).forEach(([k, v]) => root.setAttribute('data-' + k, v));
+                  const resolveTheme = (t) =>
+                    !t || t === 'system'
+                      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                      : t;
+                  const saved = localStorage.getItem('data-theme');
+                  const resolved = saved ? resolveTheme(saved) : (config.theme === 'system'
+                    ? resolveTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                    : config.theme);
+                  root.setAttribute('data-theme', resolved);
+                  Object.keys(config).forEach(k => {
+                    const v = localStorage.getItem('data-' + k);
+                    if (v) root.setAttribute('data-' + k, v);
                   });
                 } catch (e) {
-                  console.error('Failed to initialize theme:', e);
+                  console.error(e);
                   document.documentElement.setAttribute('data-theme', 'dark');
                 }
               })();
@@ -119,7 +98,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           padding="0"
           horizontal="center"
         >
-          {/* Background com RevealFx (estável) */}
           <RevealFx fill position="absolute">
             <Background
               mask={{
@@ -163,13 +141,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           </RevealFx>
 
-          {/* Pequeno respiro para header fixo (opcional) */}
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
-
-          {/* Header simples com MegaMenu */}
           <Header />
 
-          {/* Conteúdo */}
+          {/* espaçador para o header fixo “flutuante” */}
+          <Flex fillWidth minHeight="24" />
+
           <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
               {children}
