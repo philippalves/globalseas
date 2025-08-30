@@ -8,7 +8,7 @@ import { baseURL, meta, fonts, effects, style, dataStyle } from "@/resources/onc
 import { Meta, Schema,  Column, Flex, opacity, SpacingToken, Background} from "@once-ui-system/core";
 import { Providers } from '@/components/Providers';
 
-// 👇 importa o Header (client component)
+// usa o Header recém-criado
 import Header from "@/components/layout/Header";
 
 export async function generateMetadata() {
@@ -111,7 +111,7 @@ export default function RootLayout({
       </head>
       <Providers>
         <Column as="body" background="page" fillWidth margin="0" padding="0">
-          {/* Mantém o background como absoluto; elementos abaixo (Header/children) ficam acima */}
+          {/* BG decorativo por trás de tudo */}
           <Background
             position="absolute"
             mask={{
@@ -154,7 +154,7 @@ export default function RootLayout({
             }}
           />
 
-          {/* 👇 Header com MegaMenu do Once UI */}
+          {/* Header com MegaMenu oficial */}
           <Header />
 
           {/* Conteúdo das páginas */}
