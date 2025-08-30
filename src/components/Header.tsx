@@ -13,19 +13,13 @@ export default function Header() {
       padding="8"
       horizontal="center"
       border="neutral-alpha-weak"
-      background="page"            // valores permitidos pelo Once UI
+      background="page"
       style={{ backdropFilter: "blur(8px)" }}
     >
-      {/* coluna esquerda: logo/home */}
       <Flex fillWidth vertical="center">
-        <ToggleButton
-          prefixIcon="home"
-          href="/"
-          aria-label="Home"        // ✅ aqui estava o erro
-        />
+        <ToggleButton prefixIcon="home" href="/" aria-label="Home" />
       </Flex>
 
-      {/* centro: container “pílula” com o MegaMenu */}
       <Row
         background="page"
         border="neutral-alpha-weak"
@@ -128,11 +122,10 @@ export default function Header() {
         </Row>
       </Row>
 
-      {/* coluna direita: CTAs simples (opcional) */}
       <Flex fillWidth horizontal="end" vertical="center" gap="8">
         <ToggleButton href="/contact#quote" label="Get a quote" />
-        <Line background="neutral-alpha-medium" vert maxHeight="24" s={{ hide: true }} />
-        <ToggleButton href="/contact" label="Contact" s={{ hide: true }} />
+        <Line background="neutral-alpha-medium" vert maxHeight="24" />
+        <ToggleButton href="/contact" label="Contact" />
       </Flex>
     </Row>
   );
