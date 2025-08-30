@@ -8,14 +8,13 @@ export default function Header() {
       as="header"
       position="fixed"
       top="0"
-      zIndex={9}
+      zIndex={50}
       fillWidth
       padding="8"
       horizontal="center"
       background="transparent"
-      style={{ pointerEvents: "none" }}
     >
-      <Flex fillWidth vertical="center" style={{ pointerEvents: "auto" }}>
+      <Flex fillWidth vertical="center">
         <ToggleButton prefixIcon="home" href="/" aria-label="Home" />
       </Flex>
 
@@ -118,7 +117,7 @@ export default function Header() {
         />
       </Row>
 
-      <Flex fillWidth horizontal="end" vertical="center" gap="8" style={{ pointerEvents: "auto" }}>
+      <Flex fillWidth horizontal="end" vertical="center" gap="8">
         <ToggleButton href="/contact#quote" label="Get a quote" />
         <ToggleButton href="/contact" label="Contact" />
       </Flex>
