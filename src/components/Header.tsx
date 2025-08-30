@@ -8,7 +8,7 @@ export default function Header() {
       as="header"
       position="fixed"
       top="0"
-      zIndex={50}
+      zIndex={9}
       fillWidth
       padding="8"
       horizontal="center"
