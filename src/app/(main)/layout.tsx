@@ -14,7 +14,7 @@ import {
 } from "@once-ui-system/core";
 
 import { Providers } from "@/components/Providers";
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 
 // Se você já possui estes valores no projeto (padrão Once UI starter):
 import { baseURL, meta, fonts, effects, style, dataStyle } from "@/resources/once-ui.config";
