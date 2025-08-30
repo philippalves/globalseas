@@ -1,7 +1,8 @@
 "use client";
 
-import { MegaMenu } from "once-ui";
 import Link from "next/link";
+// usa o MegaMenu do pacote oficial do Once UI:
+import { MegaMenu } from "@once-ui-system/core";
 
 export default function Header() {
   return (
