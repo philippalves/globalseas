@@ -8,24 +8,26 @@ export default function Header() {
       as="header"
       position="fixed"
       top="0"
-      zIndex={9}
+      zIndex={10}
       fillWidth
       padding="8"
       horizontal="center"
       background="transparent"
+      style={{ overflow: "visible" }}
     >
       <Flex fillWidth vertical="center">
         <ToggleButton prefixIcon="home" href="/" aria-label="Home" />
       </Flex>
 
       <Row
+        position="relative"
         background="page"
         border="neutral-alpha-weak"
         radius="m-4"
         shadow="l"
         padding="4"
         horizontal="center"
-        style={{ backdropFilter: "blur(8px)" }}
+        style={{ backdropFilter: "blur(8px)", overflow: "visible" }}
       >
         <MegaMenu
           menuGroups={[
