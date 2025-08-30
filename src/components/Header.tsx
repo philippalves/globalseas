@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Row,
-  Flex,
-  Line,
-  ToggleButton,
-  MegaMenu,
-} from "@once-ui-system/core";
+import { Row, Flex, Line, ToggleButton, MegaMenu } from "@once-ui-system/core";
 
 export default function Header() {
   return (
@@ -18,16 +12,17 @@ export default function Header() {
       fillWidth
       padding="8"
       horizontal="center"
-      // borda inferior sutil como app bar
       border="neutral-alpha-weak"
-      // ✅ valores permitidos: "page" | "surface" | "transparent" | "overlay" | Colors
-      background="page"
-      // efeito de vidro (translucência controlada pelo backdrop blur)
+      background="page"            // valores permitidos pelo Once UI
       style={{ backdropFilter: "blur(8px)" }}
     >
       {/* coluna esquerda: logo/home */}
       <Flex fillWidth vertical="center">
-        <ToggleButton prefixIcon="home" href="/" ariaLabel="Home" />
+        <ToggleButton
+          prefixIcon="home"
+          href="/"
+          aria-label="Home"        // ✅ aqui estava o erro
+        />
       </Flex>
 
       {/* centro: container “pílula” com o MegaMenu */}
@@ -39,7 +34,6 @@ export default function Header() {
         padding="4"
         horizontal="center"
         zIndex={1}
-        // dá um leve destaque sem sair do tema
         style={{ backdropFilter: "blur(4px)" }}
       >
         <Row gap="4" vertical="center" textVariant="body-default-s">
