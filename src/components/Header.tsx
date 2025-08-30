@@ -20,7 +20,9 @@ export default function Header() {
       horizontal="center"
       // borda inferior sutil como app bar
       border="neutral-alpha-weak"
-      background="page-alpha"
+      // ✅ valores permitidos: "page" | "surface" | "transparent" | "overlay" | Colors
+      background="page"
+      // efeito de vidro (translucência controlada pelo backdrop blur)
       style={{ backdropFilter: "blur(8px)" }}
     >
       {/* coluna esquerda: logo/home */}
@@ -37,6 +39,8 @@ export default function Header() {
         padding="4"
         horizontal="center"
         zIndex={1}
+        // dá um leve destaque sem sair do tema
+        style={{ backdropFilter: "blur(4px)" }}
       >
         <Row gap="4" vertical="center" textVariant="body-default-s">
           <MegaMenu
@@ -49,35 +53,15 @@ export default function Header() {
                   {
                     title: "Company",
                     links: [
-                      {
-                        label: "Our mission",
-                        href: "/#values",
-                        icon: "sparkle",
-                        description: "Clarity, speed, stewardship.",
-                      },
-                      {
-                        label: "Our story",
-                        href: "/#story",
-                        icon: "book",
-                        description: "From Santos to global ports.",
-                      },
+                      { label: "Our mission", href: "/#values", icon: "sparkle", description: "Clarity, speed, stewardship." },
+                      { label: "Our story", href: "/#story", icon: "book", description: "From Santos to global ports." },
                     ],
                   },
                   {
                     title: "People",
                     links: [
-                      {
-                        label: "Team",
-                        href: "/#team",
-                        icon: "people",
-                        description: "Who ships the work.",
-                      },
-                      {
-                        label: "Clients",
-                        href: "/#logos",
-                        icon: "star",
-                        description: "Trusted across LATAM & beyond.",
-                      },
+                      { label: "Team", href: "/#team", icon: "people", description: "Who ships the work." },
+                      { label: "Clients", href: "/#logos", icon: "star", description: "Trusted across LATAM & beyond." },
                     ],
                   },
                 ],
@@ -90,35 +74,15 @@ export default function Header() {
                   {
                     title: "Operations",
                     links: [
-                      {
-                        label: "Underwater ops",
-                        href: "/services#underwater",
-                        icon: "cube",
-                        description: "Inspection & cleaning at anchor/port.",
-                      },
-                      {
-                        label: "Turnarounds",
-                        href: "/services#turnarounds",
-                        icon: "bolt",
-                        description: "Faster, auditable port calls.",
-                      },
+                      { label: "Underwater ops", href: "/services#underwater", icon: "cube", description: "Inspection & cleaning at anchor/port." },
+                      { label: "Turnarounds", href: "/services#turnarounds", icon: "bolt", description: "Faster, auditable port calls." },
                     ],
                   },
                   {
                     title: "Compliance",
                     links: [
-                      {
-                        label: "PFOS disposal",
-                        href: "/services#pfos",
-                        icon: "shieldCheck",
-                        description: "IMO/MEPC compliant shore reception.",
-                      },
-                      {
-                        label: "Tank cleaning & gas free",
-                        href: "/services#tank-cleaning",
-                        icon: "drop",
-                        description: "Certificates on delivery.",
-                      },
+                      { label: "PFOS disposal", href: "/services#pfos", icon: "shieldCheck", description: "IMO/MEPC compliant shore reception." },
+                      { label: "Tank cleaning & gas free", href: "/services#tank-cleaning", icon: "drop", description: "Certificates on delivery." },
                     ],
                   },
                 ],
@@ -131,35 +95,15 @@ export default function Header() {
                   {
                     title: "Learn",
                     links: [
-                      {
-                        label: "Quickstart",
-                        href: "/#quickstart",
-                        icon: "book",
-                        description: "How we work & engage.",
-                      },
-                      {
-                        label: "Docs",
-                        href: "/docs",
-                        icon: "document",
-                        description: "Specs, checklists, templates.",
-                      },
+                      { label: "Quickstart", href: "/#quickstart", icon: "book", description: "How we work & engage." },
+                      { label: "Docs", href: "/docs", icon: "document", description: "Specs, checklists, templates." },
                     ],
                   },
                   {
                     title: "Support",
                     links: [
-                      {
-                        label: "Help center",
-                        href: "/help",
-                        icon: "infoCircle",
-                        description: "FAQs and guidance.",
-                      },
-                      {
-                        label: "Community",
-                        href: "/community",
-                        icon: "chat",
-                        description: "Connect & share learnings.",
-                      },
+                      { label: "Help center", href: "/help", icon: "infoCircle", description: "FAQs and guidance." },
+                      { label: "Community", href: "/community", icon: "chat", description: "Connect & share learnings." },
                     ],
                   },
                 ],
@@ -172,35 +116,15 @@ export default function Header() {
                   {
                     title: "Inside",
                     links: [
-                      {
-                        label: "Careers",
-                        href: "/careers",
-                        icon: "rocket",
-                        description: "Join the crew.",
-                      },
-                      {
-                        label: "Blog",
-                        href: "/blog",
-                        icon: "document",
-                        description: "Updates and field notes.",
-                      },
+                      { label: "Careers", href: "/careers", icon: "rocket", description: "Join the crew." },
+                      { label: "Blog", href: "/blog", icon: "document", description: "Updates and field notes." },
                     ],
                   },
                   {
                     title: "Contact",
                     links: [
-                      {
-                        label: "Get a quote",
-                        href: "/contact#quote",
-                        icon: "inbox",
-                        description: "Tell us your port & ETA.",
-                      },
-                      {
-                        label: "Talk to ops",
-                        href: "/contact",
-                        icon: "email",
-                        description: "24/7 operations desk.",
-                      },
+                      { label: "Get a quote", href: "/contact#quote", icon: "inbox", description: "Tell us your port & ETA." },
+                      { label: "Talk to ops", href: "/contact", icon: "email", description: "24/7 operations desk." },
                     ],
                   },
                 ],
